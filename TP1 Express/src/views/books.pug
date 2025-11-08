@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1.text-2xl.font-semibold.mb-4 Mes livres
+  ul.divide-y.bg-white.rounded.shadow
+    each book in books
+      li.p-4
+        div.font-medium= book.title
+        div.text-sm.text-gray-600= book.author

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello page home</h1>
+<script>
+    console.log("the promise whille it's pending ..")
+    let testPromise = new Promise(() => {
+        console.log("the promise whille it's pending ..")
+    });
+
+    setTimeout(() => {
+        testPromise.then(()=> {
+            console.log("program complete.") 
+            setTimeout(() => {
+               console.log("program complete.") 
+            }, 3000);
+        })
+    }, 3000);
+
+</script>
+</body>
+</html>

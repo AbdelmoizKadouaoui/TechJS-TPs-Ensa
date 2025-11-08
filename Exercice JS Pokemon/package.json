@@ -1,0 +1,7 @@
+{
+  "name": "poke-cli-battle",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "bin": { "pokebattle": "index.js" },
+  "dependencies": { "inquirer": "8" }
+}

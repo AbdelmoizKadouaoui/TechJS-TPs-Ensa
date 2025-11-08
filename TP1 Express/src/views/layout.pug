@@ -1,0 +1,25 @@
+doctype html
+html(lang='fr')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title TP2 • Auth & Books
+    // Tailwind CDN
+    script(src='https://cdn.tailwindcss.com')
+  body(class='min-h-screen bg-gray-50')
+    header(class='bg-white border-b')
+      nav(class='max-w-3xl mx-auto flex items-center justify-between p-4')
+        a(href='/' class='text-xl font-bold') TP2
+        if currentUser
+          form(action='/logout', method='POST')
+            button(type='submit' class='px-3 py-2 rounded bg-gray-200 hover:bg-gray-300')
+              | Se déconnecter 
+              span(class='font-semibold ml-1')= currentUser.username
+        else
+          div
+            a(href='/login' class='mr-4 text-blue-600 hover:underline') Se connecter
+            a(href='/register' class='text-blue-600 hover:underline') S’inscrire
+    main(class='max-w-3xl mx-auto p-4')
+      block content
+    footer(class='text-center text-sm text-gray-500 p-6')
+      | Express · Passport · Pug · Tailwind CSS

@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1.text-2xl.font-semibold.mb-4 Connexion
+  if registered
+    p.mb-4.text-green-700.bg-green-100.p-2.rounded Compte créé. Vous pouvez vous connecter.
+  if error
+    p.mb-4.text-red-700.bg-red-100.p-2.rounded= error
+  form(method='POST' action='/login' class='space-y-4 bg-white p-6 rounded shadow')
+    div
+      label.block.mb-1(for='username') Nom d'utilisateur
+      input#username(type='text' name='username' required class='w-full border rounded p-2')
+    div
+      label.block.mb-1(for='password') Mot de passe
+      input#password(type='password' name='password' required class='w-full border rounded p-2')
+    button(type='submit' class='w-full py-2 rounded bg-blue-600 text-white hover:bg-blue-700') Se connecter
