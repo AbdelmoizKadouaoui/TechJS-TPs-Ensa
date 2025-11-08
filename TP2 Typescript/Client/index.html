@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>BookShelf Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+
+  <!-- Sidebar -->
+  <div class="flex h-screen">
+    <aside class="w-72 bg-gradient-to-b from-slate-900 to-slate-800 border-r border-slate-700 shadow-2xl p-6 flex flex-col">
+      <div class="mb-8">
+        <h1 class="text-3xl font-black bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">📚 VAULT</h1>
+        <p class="text-xs text-slate-300 mt-1">Reading Tracker</p>
+      </div>
+      <div class="flex-1"></div>
+      <p class="text-xs text-slate-500">© 2025 BookShelf Tracker</p>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-auto">
+      <div class="p-8">
+
+        <!-- Stats Section -->
+        <section id="stats" class="mb-8 hidden " style="color: #333333;">
+          <div class="grid grid-cols-4 gap-4">
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-5 rounded-xl">
+              <div class="text-slate-300 text-xs mb-2 font-medium">TOTAL BOOKS</div>
+              <div id="stat-total" class="text-3xl font-black text-blue-400">0</div>
+            </div>
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-5 rounded-xl">
+              <div class="text-slate-300 text-xs mb-2 font-medium">FINISHED</div>
+              <div id="stat-finished" class="text-3xl font-black text-green-400">0</div>
+            </div>
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-5 rounded-xl">
+              <div class="text-slate-300 text-xs mb-2 font-medium">READING</div>
+              <div id="stat-reading" class="text-3xl font-black text-blue-400">0</div>
+            </div>
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-5 rounded-xl">
+              <div class="text-slate-300 text-xs mb-2 font-medium">PAGES READ</div>
+              <div id="stat-pages" class="text-3xl font-black text-blue-400">0</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Add Book Form -->
+        <section class="mb-8 bg-slate-800 border border-slate-700 rounded-2xl p-8 shadow-2xl">
+          <h2 class="text-2xl font-black mb-6 text-blue-400">➕ Add New Book</h2>
+          <form id="bookForm" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <input name="title" class="bg-slate-700 border border-slate-600 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-slate-400" placeholder="📖 Title" required />
+            <input name="author" class="bg-slate-700 border border-slate-600 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-slate-400" placeholder="✍️ Author" required />
+            <input name="pages" type="number" min="1" class="bg-slate-700 border border-slate-600 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-slate-400" placeholder="📄 Pages" required />
+            <select name="status" class="bg-slate-700 border border-slate-600 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+              <option>Want to read</option>
+              <option>Currently reading</option>
+              <option>Read</option>
+              <option>Re-read</option>
+              <option>DNF</option>
+              <option>Returned Unread</option>
+            </select>
+            <select name="format" class="bg-slate-700 border border-slate-600 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+              <option>Print</option>
+              <option>PDF</option>
+              <option>Ebook</option>
+              <option>AudioBook</option>
+            </select>
+            <input name="price" type="number" min="0" class="bg-slate-700 border border-slate-600 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-slate-400" placeholder="💲 Price" />
+            <input name="pagesRead" type="number" min="0" class="bg-slate-700 border border-slate-600 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-slate-400" placeholder="📘 Pages read" value="0" />
+            <input name="suggestedBy" class="bg-slate-700 border border-slate-600 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-slate-400 lg:col-span-2" placeholder="💡 Suggested by" />
+            <button type="submit" class="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-bold py-3 rounded-lg transition duration-200 lg:col-span-3">Add Book</button>
+          </form>
+        </section>
+
+        <!-- Library Section -->
+        <section>
+          <h2 class="text-2xl font-black mb-6 text-blue-400">📚 My Library</h2>
+          <div id="list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" style="color: #333333;"></div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script type="module">import './dist/app.js';</script>
+</body>
+</html>
